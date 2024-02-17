@@ -7,3 +7,17 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+url = "https://api.pokemontcg.io/v2/cards/"
+
+cards = JSON.parse(open(url).read)
+cards.each do |card|
+  Card.create(
+    name: card["name"],
+    image_url: card["images"]["small"],
+    rarity: card["rarity"],
+    price: card["tcgplayer"]["prices"]["holofoil"]["market"]
+  )
+
+end
+"Completed"
