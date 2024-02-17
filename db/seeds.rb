@@ -1,17 +1,28 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+require 'net/http'
+require 'uri'
 
-url = "https://api.pokemontcg.io/v2/cards/"
+page = 1
+all_cards = []
 
-cards = JSON.parse(URI.open(url).read)["data"]
-cards.each do |card|
+loop do
+  url = URI("https://api.pokemontcg.io/v2/cards?page=#{page}")
+  http = Net::HTTP.new(url.host, url.port)
+  http.use_ssl = true
+  request = Net::HTTP::Get.new(url)
+  request["XApi-Key"] = "89fe5de6-821b-4d18-8167-fa34bd3f66da" # replace "your_api_key" with your actual API key
+
+  response = http.request(request)
+  cards = JSON.parse(response.body)["data"]
+
+  break if cards.empty? # stop if there are no more cards
+
+  all_cards.concat(cards) # add the cards from this page to the total
+
+  page += 1 # increment the page number for the next iteration
+  puts "page added"
+end
+
+all_cards.each do |card|
   card_price = card.dig("tcgplayer", "prices", "holofoil", "market") || rand(1..100)
   Card.create(
     name: card["name"],

@@ -1,0 +1,8 @@
+<% @cards.each do |card| %>
+  <%= link_to card.image_url, class: 'card' do %>
+    <div class="card__title">
+      <%= card.name %>
+    </div>
+    <%= image_tag(card.image_url, alt: "Description") %>
+  <% end %>
+<% end %>
