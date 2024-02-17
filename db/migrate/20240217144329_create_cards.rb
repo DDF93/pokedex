@@ -3,7 +3,6 @@ class CreateCards < ActiveRecord::Migration[7.1]
     create_table :cards do |t|
       t.string :name
       t.string :condition
-      t.text :description
       t.string :rarity
       t.string :image_url
       t.float :price

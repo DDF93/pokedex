@@ -10,7 +10,7 @@
 
 url = "https://api.pokemontcg.io/v2/cards/"
 
-cards = JSON.parse(open(url).read)
+cards = JSON.parse(URI.open(url).read)["data"]
 cards.each do |card|
   Card.create(
     name: card["name"],
@@ -18,6 +18,5 @@ cards.each do |card|
     rarity: card["rarity"],
     price: card["tcgplayer"]["prices"]["holofoil"]["market"]
   )
-
 end
 "Completed"
