@@ -17,9 +17,9 @@ loop do
   break if cards.empty? # stop if there are no more cards
 
   all_cards.concat(cards) # add the cards from this page to the total
-
+  puts "page #{page} / 70 added"
   page += 1 # increment the page number for the next iteration
-  puts "page added"
+
 end
 
 all_cards.each do |card|
