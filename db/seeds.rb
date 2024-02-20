@@ -31,4 +31,4 @@ all_cards.each do |card|
     price: card_price
   )
 end
-"Completed"
+"Cards Completed"
