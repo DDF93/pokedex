@@ -2,13 +2,21 @@
   <% @cards.each_slice(6) do |card_group| %>
     <div class="row">
       <% card_group.each do |card| %>
-        <div class="col-md-2">
+        <div class="col-md-2 each-card">
           <%= link_to card_path(card), class: 'card' do %>
+            <%= image_tag(card.image_url, alt: "Description", class: "img-fluid") %>
+          <% end %>
+          <div class="card__content text-center">
             <div class="card__title">
               <%= card.name %>
             </div>
-            <%= image_tag(card.image_url, alt: "Description", class: "img-fluid") %>
-          <% end %>
+            <div class="card__price">
+              <%= number_to_currency(card.price, unit: "£") %>
+            </div>
+            <div class="card__rarity">
+              <%= card.rarity %>
+            </div>
+          </div>
         </div>
       <% end %>
     </div>
