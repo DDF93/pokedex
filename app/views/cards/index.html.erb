@@ -1,8 +1,16 @@
-<% @cards.each do |card| %>
-  <%= link_to card_path(card), class: 'card' do %>
-    <div class="card__title">
-      <%= card.name %>
+<div class="container">
+  <% @cards.each_slice(6) do |card_group| %>
+    <div class="row">
+      <% card_group.each do |card| %>
+        <div class="col-md-2">
+          <%= link_to card_path(card), class: 'card' do %>
+            <div class="card__title">
+              <%= card.name %>
+            </div>
+            <%= image_tag(card.image_url, alt: "Description", class: "img-fluid") %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
-    <%= image_tag(card.image_url, alt: "Description") %>
   <% end %>
-<% end %>
+</div>
