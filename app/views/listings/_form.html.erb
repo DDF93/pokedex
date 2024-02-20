@@ -4,11 +4,23 @@
       <div class="bg-white rounded p-4 shadow-sm">
         <h3 class="mb-4 text-center">Create a New Listing</h3>
         <%= simple_form_for @listing do |f| %>
+          <%= f.simple_fields_for :card do |card_form| %>
+            <div class="form-group mb-4">
+              <% if @card.present? && @card.card_id.present? && @card.image_url.present? %>
+                <% card_id = @card.card_id %>
+                <% image_url = @card.image_url %>
+                <% image_full_url = "#{card_id}/#{image_url}" %>
+                <img src="<%= image_full_url %>" class="card-img-top" alt="Card Image">
+              <% else %>
+                <p>No image available</p>
+              <% end %>
+            </div>
+            <div class="form-group mb-4">
+              <%= card_form.input :name, input_html: { class: 'form-control', placeholder: 'Card Name' } %>
+            </div>
+          <% end %>
           <div class="form-group mb-4">
-            <%= f.input :card_id, collection: @cards, label_method: :name, value_method: :id%>
-          </div>
-          <div class="form-group mb-4">
-            <%= f.input :condition, readonly: true %>
+            <%= f.input :condition, collection: ['New', 'Mint', 'Used', 'Poor'], include_blank: false, label: 'Condition', input_html: { class: 'form-control' } %>
           </div>
           <div class="text-center">
             <%= f.submit 'Create Listing', class: 'btn btn-primary btn-md px-5' %>
