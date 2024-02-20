@@ -1,9 +1,15 @@
+.content-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .page-container {
   background-color: white;
   padding: 20px;
 }
 
 .card-details-container {
+  flex: 3;
   display: flex;
   gap: 40px;
   margin-left: 80px;
@@ -45,11 +51,36 @@
 .back-button {
   display: inline-block;
   margin-bottom: 20px;
+  text-decoration: none;
+  color: rgb(47, 92, 255)
 }
 
 .see-more-section .row {
   display: flex;
   gap: 20px;
+}
+
+.listings-panel {
+  flex: 1;
+  background-color: #f6f6f6;
+  padding: 20px;
+  margin-left: 10px;
+  margin-right: 80px;
+}
+
+.listing-row {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.btn-success {
+  background-color: rgb(104, 255, 104);
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 5px;
 }
 
 .col-md-2 {
@@ -64,4 +95,14 @@
 
 .card__title {
   margin-bottom: 10px;
+}
+
+.live-indicator {
+  height: 10px;
+  width: 10px;
+  background-color: #00ff3c;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: middle;
 }

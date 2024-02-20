@@ -1,30 +1,42 @@
 <div class="page-container">
   <%= link_to '< Back', cards_path, class: 'back-button' %>
 
-  <div class="card-details-container">
-  <div class="card-image">
-    <%= image_tag(@card.image_url, alt: @card.name, class: "img-fluid") %>
-  </div>
+  <div class="content-container">
+    <div class="card-details-container">
+      <div class="card-image">
+        <%= image_tag(@card.image_url, alt: @card.name, class: "img-fluid") %>
+      </div>
 
-  <div class="card-info">
-    <h1><%= @card.name %></h1>
-    <div class="rarity-box">
-      <strong>Rarity:</strong> <%= @card.rarity %>
+      <div class="card-info">
+        <h1><%= @card.name %></h1>
+        <div class="rarity-box">
+          <strong>Rarity:</strong> <%= @card.rarity %>
+        </div>
+        <br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+        <br>
+        <div class="card-price">
+          Trending Price:<br>
+          <h3><strong><%= number_to_currency(@card.price) %></strong></h3><small>Based on Mint Condition</small><br>
+        </div>
+        <br><br>
+        <div class="action-buttons">
+          <%= link_to '+ Sell This Card', new_listing_path, class: "btn btn-primary" %>
+        </div>
+      </div>
     </div>
-    <br>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-    <br>
-    <div class="card-price">
-      Trending Price:<br>
-      <h3><strong><%= number_to_currency(@card.price) %></h3></strong><small>Based on Mint Condition</small><br>
-    </div>
-    <br><br>
-    <div class="action-buttons">
-      <%= link_to '+ Sell This Card', new_listing_path, class: "btn btn-primary" %>
+
+    <div class="listings-panel">
+      <h6><span class="live-indicator"></span>LIVE LISTINGS</h6>
+      <% @card.listings.each do |listing| %>
+        <div class="listing-row">
+          <%= listing.user.username %> is selling | 🇬🇧
+          <div>Condition: <%= listing.condition %></div>
+          <%= link_to 'Buy', buy_listing_path(listing), class: "btn btn-success" %>
+        </div>
+      <% end %>
     </div>
   </div>
-</div>
-
 
   <br><br><br><br>
   <div class="container">
