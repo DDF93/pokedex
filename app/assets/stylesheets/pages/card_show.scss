@@ -1,0 +1,67 @@
+.page-container {
+  background-color: white;
+  padding: 20px;
+}
+
+.card-details-container {
+  display: flex;
+  gap: 40px;
+  margin-left: 80px;
+  margin-right: 80px;
+  align-items: flex-start;
+}
+
+.card-image img {
+  min-width: 300px;
+  height: auto;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-bottom: 10px;
+}
+
+.rarity-box {
+  display: inline-block;
+  background-image: linear-gradient(to bottom right, rgb(255, 228, 129), rgb(255, 207, 31));
+  border-radius: 8px;
+  padding: 5px 10px;
+  color: rgb(65, 31, 12);
+}
+
+.card-price {
+  margin-top: 60px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.see-more-section .row {
+  display: flex;
+  gap: 20px;
+}
+
+.col-md-2 {
+  flex: 0 0 auto;
+  width: 16.66667%;
+}
+
+.card-link {
+  display: block;
+  text-align: center;
+}
+
+.card__title {
+  margin-bottom: 10px;
+}
