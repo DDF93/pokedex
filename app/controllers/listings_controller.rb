@@ -12,6 +12,11 @@ class ListingsController < ApplicationController
       redirect_to listing_path(@listing)
     else
       render :new
+    end
+
+    def edit
+    end
+    
   end
 
   private
