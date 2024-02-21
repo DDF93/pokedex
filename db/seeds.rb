@@ -19,7 +19,6 @@ loop do
   all_cards.concat(cards) # add the cards from this page the array of cards
   puts "page #{page} / 70 added"
   page += 1 # increment the page number for the next iteration
-
 end
 
 all_cards.each do |card|
@@ -43,11 +42,10 @@ puts "Creating Users"
     password: "password",
     username: Faker::Internet.username
   })
-
 end
 
- Puts "Users Completed"
- Puts "Creating Listings"
+puts "Users Completed"
+puts "Creating Listings"
 
 # Grab all cards and users
 cards = Card.all
@@ -76,7 +74,6 @@ cards.each do |card|
                            else
                              0.0
                            end
-
 
     listing_price = (card.price * condition_multiplier).round(2)
 
