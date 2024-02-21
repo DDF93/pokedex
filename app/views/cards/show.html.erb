@@ -21,7 +21,7 @@
         </div>
         <br><br>
         <div class="action-buttons">
-          <%= link_to '+ Sell This Card', new_card_listing_path(@card), class: "btn btn-primary" %>
+          <%= link_to 'Sell This Card', new_card_listing_path(@card), class: "btn btn-primary" %>
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@
         <div class="listing-row">
           <%= listing.user.username %> is selling | 🇬🇧
           <div>Condition: <%= listing.condition %></div>
-          <%= link_to 'Buy', buy_listing_path(listing), class: "btn btn-success" %>
+          <%= link_to 'Buy', card_listing_path(@card, listing), class: "btn btn-success" %>
         </div>
       <% end %>
     </div>
@@ -42,26 +42,26 @@
   <div class="container">
     <h3>More Like This</h3><br>
     <% @cards.each_slice(6) do |card_group| %>
-    <div class="row">
-      <% card_group.each do |card| %>
-        <div class="col-md-2 each-card">
-          <%= link_to card_path(card), class: 'card' do %>
-            <%= image_tag(card.image_url, alt: "Description", class: "img-fluid") %>
-          <% end %>
-          <div class="card__content text-center">
-            <div class="card__title">
-              <%= card.name %>
-            </div>
-            <div class="card__price">
-              <%= number_to_currency(card.price, unit: "£") %>
-            </div>
-            <div class="card__rarity">
-              <%= card.rarity %>
+      <div class="row">
+        <% card_group.each do |card| %>
+          <div class="col-md-2 each-card">
+            <%= link_to card_path(card), class: 'card' do %>
+              <%= image_tag(card.image_url, alt: "Description", class: "img-fluid") %>
+            <% end %>
+            <div class="card__content text-center">
+              <div class="card__title">
+                <%= card.name %>
+              </div>
+              <div class="card__price">
+                <%= number_to_currency(card.price, unit: "£") %>
+              </div>
+              <div class="card__rarity">
+                <%= card.rarity %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
