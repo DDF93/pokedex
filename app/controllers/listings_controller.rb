@@ -3,6 +3,7 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
+    @card = Card.find(params[:card_id])
   end
 
   def create
@@ -13,10 +14,10 @@ class ListingsController < ApplicationController
     else
       render :new
     end
+  end
 
-    def edit
-    end
-    
+  def edit
+    # Add your edit action logic here
   end
 
   private
@@ -24,5 +25,4 @@ class ListingsController < ApplicationController
   def listing_params
     params.require(:listing).permit(:card_id)
   end
-
 end
