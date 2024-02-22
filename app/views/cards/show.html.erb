@@ -30,7 +30,7 @@
       <h6><span class="live-indicator"></span>LIVE LISTINGS</h6>
       <% @card.listings.each do |listing| %>
         <div class="listing-row">
-          <%= listing.user.username %> is selling | 🇬🇧
+          <%= listing.user.email %> is selling | 🇬🇧
           <div>Condition: <%= listing.condition %></div>
           <%= link_to 'Buy', buy_listing_path(listing), class: "btn btn-success" %>
         </div>
