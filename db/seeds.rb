@@ -22,7 +22,7 @@ loop do
 end
 
 all_cards.each do |card|
-  card_price = card.dig("cardmarket", "prices", "averageSellPrice") || rand(1..20)
+  card_price = card.dig("tcgplayer", "prices", "holofoil", "market") || rand(1..20)
   Card.create(
     name: card["name"],
     image_url: card["images"]["small"],
