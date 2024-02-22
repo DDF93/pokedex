@@ -26,12 +26,11 @@
     </div>
 
     <div class="listings-panel">
-      <% unsold_listings = @card.listings.reject(&:sold) %>
-      <h6><span class="live-indicator"></span><%= unsold_listings.count %> For Sale</h6>
-      <% if unsold_listings.empty? %>
+      <h6><span class="live-indicator"></span><%= @unsold_listings.count %> For Sale</h6>
+      <% if @unsold_listings.empty? %>
         <div class="none-for-sale">Oh Arceus!</div>
       <% else %>
-        <% unsold_listings.each do |listing| %>
+        <% @unsold_listings.each do |listing| %>
           <div class="listing-row">
             <div class="listing-details">
               <div><%= listing.condition %></div>
@@ -46,6 +45,7 @@
       <% end %>
     </div>
   </div>
+
 
   <br><br><br><br>
   <div class="container">
