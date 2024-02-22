@@ -1,2 +1,44 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="2500">
+        <%= image_tag("Banner-1.jpg", class: "d-block w-100", alt: "...") %>
+    </div>
+    <div class="carousel-item" data-bs-interval="2500">
+      <%= image_tag("Banner-1.jpg", class: "d-block w-100", alt: "...") %>
+    </div>
+    <div class="carousel-item" data-bs-interval="2500">
+      <%= image_tag("Banner-1.jpg", class: "d-block w-100", alt: "...") %>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<section class="container mt-5">
+  <h2 class="mb-4">Top Selling Cards</h2>
+  <div class="row">
+    <% @top_selling_cards.each do |card| %>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <%= image_tag(card.image_url, class: "card-img-top", alt: card.name) %>
+          <div class="card-body">
+            <h5 class="card-title"><%= card.name %></h5>
+            <p class="card-text"><%= card.description %></p>
+            <a href="<%= card_path(card) %>" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
