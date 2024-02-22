@@ -1,7 +1,9 @@
 .content-container {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
+
 
 .page-container {
   background-color: white;
@@ -13,7 +15,6 @@
   display: flex;
   gap: 40px;
   margin-left: 80px;
-  margin-right: 80px;
   align-items: flex-start;
 }
 
@@ -62,25 +63,69 @@
 
 .listings-panel {
   flex: 1;
-  background-color: #f6f6f6;
+  background-color: #fdfdfd;
+  color: #000000;
   padding: 20px;
-  margin-left: 10px;
+  margin-left: 90px;
   margin-right: 80px;
+  max-width: 400px;
+  height: 400px;
+  overflow-y: auto;
+  border: 1px solid rgb(136, 136, 136);
+  border-radius: 10px;
+}
+
+.listings-panel h6 {
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 10px;
+}
+
+.listing-details {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+}
+
+.username {
+  color: #007bff;
+  font-size: 0.9em;
 }
 
 .listing-row {
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e2e2;
+  padding: 10px 0px;
+}
+
+.listing-details > div {
+  font-size: 1em;
+}
+
+.listing-details > span {
+  font-size: 0.8em;
+  margin-top: 10px;
+  color:rgb(101, 101, 101)
+}
+
+.buy-button {
+  margin-left: auto;
 }
 
 .btn-success {
-  background-color: rgb(104, 255, 104);
+  background-color: #007bff;
   color: white;
   text-decoration: none;
   padding: 5px 10px;
-  border-radius: 5px;
   display: inline-block;
   margin-top: 5px;
+}
+
+.none-for-sale {
+  text-align: center;
+  color: rgb(175, 175, 175);
+  padding: 20px;
 }
 
 .col-md-2 {
