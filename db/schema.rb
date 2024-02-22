@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_21_211244) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_22_202928) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
     t.string "name"
-    t.string "condition"
     t.string "rarity"
     t.string "image_url"
     t.float "price"
@@ -32,8 +31,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_21_211244) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "price"
+    t.string "delivery_address"
     t.index ["card_id"], name: "index_listings_on_card_id"
     t.index ["user_id"], name: "index_listings_on_user_id"
+  end
+
+  create_table "sales", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "listing_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_sales_on_listing_id"
+    t.index ["user_id"], name: "index_sales_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,4 +62,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_21_211244) do
 
   add_foreign_key "listings", "cards"
   add_foreign_key "listings", "users"
+  add_foreign_key "sales", "listings"
+  add_foreign_key "sales", "users"
 end
