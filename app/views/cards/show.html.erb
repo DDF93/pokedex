@@ -27,10 +27,10 @@
 
     <div class="listings-panel">
       <h6><span class="live-indicator"></span><%= @card.listings.count %> For Sale</h6>
-      <% if @card.listings.empty? %>
+      <% if @card.listings.count == 0 %>
         <div class="none-for-sale">Oh Arceus!</div>
       <% else %>
-        <% @card.listings.each do |listing| %>
+        <% @unsold_listings.each do |listing| %>
           <div class="listing-row">
             <div class="listing-details">
               <div><%= listing.condition %></div>
