@@ -1,5 +1,5 @@
 <div class="page-container">
-  <%= link_to '< Back', cards_path, class: 'back-button' %>
+  <%= link_to '&larr; Back'.html_safe, cards_path, class: 'back-button' %>
 
   <div class="content-container">
     <div class="card-details-container">
@@ -49,23 +49,26 @@
 
   <br><br><br><br>
   <div class="container">
-    <h3>More Like This</h3><br>
+    <h3>More Like This</h3>
     <% @cards.each_slice(6) do |card_group| %>
       <div class="row">
         <% card_group.each do |card| %>
-          <div class="col-md-2 each-card">
+          <div class="col-md-2 card-grid" style="padding: 15px;">
             <%= link_to card_path(card), class: 'card' do %>
               <%= image_tag(card.image_url, alt: "Description", class: "img-fluid") %>
             <% end %>
-            <div class="card__content text-center">
-              <div class="card__title">
-                <%= card.name %>
+            <div class="card-grid__content" style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div style="flex-grow: 1;">
+                <div class="card-grid__title" style="font-size: 16px;">
+                  <%= card.name %>
+                </div>
+                <div class="card-grid__rarity" style="font-size: 12px; margin-top: -5px;">
+                  <%= card.rarity %>
+                </div>
               </div>
-              <div class="card__price">
+              <div class="card-grid__price" style="font-weight: bold; font-size: 16px;">
                 <%= number_to_currency(card.price, unit: "£") %>
-              </div>
-              <div class="card__rarity">
-                <%= card.rarity %>
+                <div style="text-align: right; font-size: 12px;">&rarr;</div>
               </div>
             </div>
           </div>
