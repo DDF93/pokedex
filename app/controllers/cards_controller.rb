@@ -8,10 +8,9 @@ class CardsController < ApplicationController
       @cards = @cards.where("name ILIKE ?", "%#{params[:search]}%")
     end
 
-    if params[:rarity].present? && params[:rarity] != ["All"]
+    if params[:rarity].present? && params[:rarity] != "All"
       @cards = @cards.where(rarity: params[:rarity])
     end
-
 
     if params[:min_price].present?
       @cards = @cards.where("price >= ?", params[:min_price].to_f)
@@ -21,8 +20,9 @@ class CardsController < ApplicationController
       @cards = @cards.where("price <= ?", params[:max_price].to_f)
     end
 
+    if params[:search].blank? && params[:rarity].blank? && params[:min_price].blank? && params[:max_price].blank?
       @cards = @cards.order("RANDOM()").limit(48)
-
+    end
 
     @rarities = Card.where.not(rarity: nil).pluck(:rarity).uniq.sort
   end
