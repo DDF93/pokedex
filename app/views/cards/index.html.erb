@@ -1,11 +1,11 @@
 <div class="container-fluid">
+          <h2 class="title-centered">Start your adventure: become a Pokédex Master!</h2>
   <div class="row">
-    <div class="col-md-3 mt-5 mb-5" style="position: relative; top: 50px;"> <!-- Adjusted margin top and added margin bottom -->
+    <div class="col-md-3  mb-5" style="position: relative; "> <!-- Adjusted margin top and added margin bottom -->
       <%= render 'filter_form' %>
     </div>
     <div class="col-md-9 overflow-auto"> <!-- Add overflow-auto class for overflow -->
       <div class="container">
-        <h2 class="title-centered">Start your adventure: become a Pokédex Master!</h2>
         <div class="row">
           <% @cards.each do |card| %>
             <div class="col-md-2 card-grid" style="padding: 15px;">
