@@ -13,55 +13,64 @@
           <strong>Rarity:</strong> <%= @card.rarity %>
         </div>
         <br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-        <br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
         <div class="card-price">
           Trending Price:<br>
           <h3><strong><%= number_to_currency(@card.price) %></strong></h3><small>Based on Mint Condition</small><br>
         </div>
-        <br><br>
+        <br>
         <div class="action-buttons">
-          <%= link_to '+ Sell This Card', new_card_listing_path(@card), class: "btn btn-primary" %>
+          <%= link_to '+ Add Card for Sale', new_card_listing_path(@card), class: "btn btn-dark" %>
         </div>
       </div>
     </div>
 
     <div class="listings-panel">
-      <h6><span class="live-indicator"></span>LIVE LISTINGS</h6>
-      <% @card.listings.each do |listing| %>
-        <div class="listing-row">
-          <%= listing.user.email %> is selling | 🇬🇧
-          <div>Condition: <%= listing.condition %></div>
-          <%= link_to 'Buy', buy_listing_path(listing), class: "btn btn-success" %>
-        </div>
+      <h6><span class="live-indicator"></span><%= @card.listings.count %> For Sale</h6>
+      <% if @card.listings.empty? %>
+        <div class="none-for-sale">Oh Arceus!</div>
+      <% else %>
+        <% @card.listings.each do |listing| %>
+          <div class="listing-row">
+            <div class="listing-details">
+              <div><%= listing.condition %></div>
+              <div><strong><%= number_to_currency(listing.price) %></strong></div>
+              <span><span class="username">@<%= listing.user.username %></span> listed <%= rand(1..20) %> days ago</span>
+            </div>
+            <div class="buy-button">
+              <%= link_to 'Buy', card_listing_path(@card, listing), class: "btn btn-dark" %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
+
 
   <br><br><br><br>
   <div class="container">
     <h3>More Like This</h3><br>
     <% @cards.each_slice(6) do |card_group| %>
-    <div class="row">
-      <% card_group.each do |card| %>
-        <div class="col-md-2 each-card">
-          <%= link_to card_path(card), class: 'card' do %>
-            <%= image_tag(card.image_url, alt: "Description", class: "img-fluid") %>
-          <% end %>
-          <div class="card__content text-center">
-            <div class="card__title">
-              <%= card.name %>
-            </div>
-            <div class="card__price">
-              <%= number_to_currency(card.price, unit: "£") %>
-            </div>
-            <div class="card__rarity">
-              <%= card.rarity %>
+      <div class="row">
+        <% card_group.each do |card| %>
+          <div class="col-md-2 each-card">
+            <%= link_to card_path(card), class: 'card' do %>
+              <%= image_tag(card.image_url, alt: "Description", class: "img-fluid") %>
+            <% end %>
+            <div class="card__content text-center">
+              <div class="card__title">
+                <%= card.name %>
+              </div>
+              <div class="card__price">
+                <%= number_to_currency(card.price, unit: "£") %>
+              </div>
+              <div class="card__rarity">
+                <%= card.rarity %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

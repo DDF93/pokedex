@@ -1,0 +1,10 @@
+<div class="bg-white rounded p-4 shadow-sm">
+  <h3 class="mb-4 text-center">Shipping address</h3>
+  <%= simple_form_for @listing, url: { action: :update, id: @listing }, method: :patch do |f| %>
+    <div class="form-group mb-4">
+      <%= f.input :delivery_address, label_html: { class: 'form-label' }, placeholder: 'Enter Delivery Address', input_html: { class: 'form-control' } %>
+    </div>
+    <%= f.hidden_field :sold, value: true %>
+    <%= f.submit "Update Listing", class: "btn btn-primary" %>
+  <% end %>
+</div>
