@@ -1,10 +1,29 @@
 class CardsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    @cards = Card.order("RANDOM()").limit(50)
-    if params[:rarity].present? && params[:rarity] != "All"
-      @cards = Card.where(rarity: params[:rarity]).limit(50)
+    @cards = Card.all
+
+    if params[:search].present?
+      @cards = @cards.where("name ILIKE ?", "%#{params[:search]}%")
     end
+
+    if params[:rarity].present? && params[:rarity] != ["All"]
+      @cards = @cards.where(rarity: params[:rarity])
+    end
+
+
+    if params[:min_price].present?
+      @cards = @cards.where("price >= ?", params[:min_price].to_f)
+    end
+
+    if params[:max_price].present?
+      @cards = @cards.where("price <= ?", params[:max_price].to_f)
+    end
+
+      @cards = @cards.order("RANDOM()").limit(48)
+
+
     @rarities = Card.where.not(rarity: nil).pluck(:rarity).uniq.sort
   end
 

@@ -1,30 +1,35 @@
-<%= render 'rarity_form' %>
-
-<div class="container">
-  <h2 class="title-centered">Start your adventure: become a Pokédex Master!</h2>
-  <% @cards.each_slice(6) do |card_group| %>
-    <div class="row">
-      <% card_group.each do |card| %>
-        <div class="col-md-2 card-grid" style="padding: 15px;">
-          <%= link_to card_path(card), class: 'card' do %>
-            <%= image_tag(card.image_url, alt: "Description", class: "img-fluid") %>
-          <% end %>
-          <div class="card-grid__content" style="display: flex; justify-content: space-between; align-items: flex-start;">
-            <div style="flex-grow: 1;">
-              <div class="card-grid__title" style="font-size: 16px;">
-                <%= card.name %>
-              </div>
-              <div class="card-grid__rarity" style="font-size: 12px; margin-top: -5px;">
-                <%= card.rarity %>
-              </div>
-            </div>
-            <div class="card-grid__price" style="font-weight: bold; font-size: 16px;">
-              <%= number_to_currency(card.price, unit: "£") %>
-              <div style="text-align: right; font-size: 12px;">&rarr;</div>
-            </div>
-          </div>
-        </div>
-      <% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 mt-5 mb-5" style="position: relative; top: 50px;"> <!-- Adjusted margin top and added margin bottom -->
+      <%= render 'filter_form' %>
     </div>
-  <% end %>
+    <div class="col-md-9 overflow-auto"> <!-- Add overflow-auto class for overflow -->
+      <div class="container">
+        <h2 class="title-centered">Start your adventure: become a Pokédex Master!</h2>
+        <div class="row">
+          <% @cards.each do |card| %>
+            <div class="col-md-2 card-grid" style="padding: 15px;">
+              <%= link_to card_path(card), class: 'card' do %>
+                <%= image_tag(card.image_url, alt: "Description", class: "img-fluid") %>
+              <% end %>
+              <div class="card-grid__content" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div style="flex-grow: 1;">
+                  <div class="card-grid__title" style="font-size: 16px;">
+                    <%= card.name %>
+                  </div>
+                  <div class="card-grid__rarity" style="font-size: 12px; margin-top: -5px;">
+                    <%= card.rarity %>
+                  </div>
+                </div>
+                <div class="card-grid__price" style="font-weight: bold; font-size: 16px;">
+                  <%= number_to_currency(card.price, unit: "£") %>
+                  <div style="text-align: right; font-size: 12px;">&rarr;</div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
