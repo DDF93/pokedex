@@ -1,5 +1,5 @@
 .carousel-item {
-  height: 600px;
+  height: 500px;
 
   img {
     height: 100%;
@@ -7,6 +7,32 @@
   }
 }
 
-.start-33 {
-  left: 33.33%;
+.animated-placeholder::placeholder {
+  animation: reveal 3s;
+  opacity: 0;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+  }
+}
+
+#search::placeholder {
+  text-align: center;
+}
+.search-input {
+  width: 100%; /* adjust as needed */
+  height: 50px; /* adjust as needed */
+  font-size: 20px; /* adjust as needed */
+}
+
+.carousel-caption {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-caption h1 {
+  font-size: 2em; /* adjust as needed */
+  margin-bottom: 20px; /* adjust as needed */
 }
