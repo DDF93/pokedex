@@ -18,7 +18,7 @@
         </div>
         <div class="transaction-metadata">
           <div class="transaction-date-box"><%= sale.created_at.strftime('%b %d') %></div>
-          <p class="transaction-price"><strong>£<%= sale.listing.price %></strong></p>
+          <p class="transaction-price"><strong><%= number_to_currency(sale.listing.price, unit: "£") %></strong></p>
         </div>
       </div>
     <% end %>
@@ -59,7 +59,7 @@
           <% else %>
             <div class="sale-status for-sale">FOR SALE</div>
           <% end %>
-          <p class="transaction-price"><strong>£<%= listing.price %></strong></p>
+          <p class="transaction-price"><strong><%= number_to_currency(listing.price, unit: "£") %></strong></p>
         </div>
       </div>
     <% end %>
