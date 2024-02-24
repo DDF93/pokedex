@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_listing, only: [:show, :edit, :update]
+  before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def new
     @card = Card.find(params[:card_id])
@@ -34,6 +34,18 @@ def update
   end
 end
 
+def destroy
+  @listing = Listing.find(params[:id])
+  @listing.destroy
+  @my_listings = Listing.where(user_id: current_user.id)
+  redirect_to transactions_listings_path
+end
+
+def transactions
+  @my_listings = Listing.where(user_id: current_user.id)
+  @bought_sales = Sale.includes(listing: [:card, :user]).where(user_id: current_user.id)
+end
+
 
   private
 
@@ -61,6 +73,5 @@ end
 
     (@listing.card.price * condition_multiplier).round(2)
   end
-
 
 end

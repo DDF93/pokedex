@@ -1,0 +1,157 @@
+.transactions-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.transaction-section {
+  width: 48%;
+}
+
+.transaction-box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: #fbfbfb;
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 10px;
+  position: relative;
+}
+
+.transaction-section h2 {
+  display: flex;
+  align-items: center; /* Aligns items vertically center */
+  flex-wrap: wrap; /* Allows items to wrap if needed */
+}
+
+.purchase-count {
+  background-color: black;
+  color: white;
+  border-radius: 50%; /* Ensures circular shape */
+  width: 20px; /* Equal width and height ensure a circle */
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.sales-count {
+  color: white;
+  border-radius: 15px;
+  padding: 2px 8px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.sales-count.for-sale {
+  background-color: green;
+}
+
+.sales-count.sold {
+  background-color: red;
+}
+
+.transaction-card-image {
+  max-width: 100px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.transaction-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding: 0 20px;
+}
+
+.transaction-card-name, .transaction-condition {
+  margin-bottom: 10px;
+}
+
+.transaction-card-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.transaction-condition {
+  color: rgb(174, 174, 174);
+}
+
+.rarity-box {
+  margin-top: 4px;
+  align-self: start;
+}
+
+.user-info p {
+  position: absolute;
+  bottom: 10px;
+  color: black;
+}
+
+.user-info p span {
+  color: blue;
+}
+
+.transaction-metadata {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  bottom: 10px;
+}
+
+.transaction-date-box {
+  background-color: rgb(235, 235, 235);
+  color: rgb(28, 28, 28);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: auto;
+}
+
+.transaction-price {
+  font-weight: bold;
+  margin-top: auto;
+}
+
+.sale-status {
+  white-space: nowrap;
+  padding: 2px 5px;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.sold {
+  background-color: red;
+}
+
+.for-sale {
+  background-color: green;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  align-self: start;
+  position: absolute;
+  bottom: 10px;
+}
