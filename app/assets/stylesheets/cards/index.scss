@@ -1,7 +1,51 @@
-.card__content {
-  text-align: center;
+.img-fluid {
+  border: 1px solid rgb(198, 198, 198);
+  border-radius: 15px;
 }
 
-.each-card {
-  padding: 7.5px;
+.title-centered {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.card-grid {
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.card-grid__content {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-grid__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-grid__title {
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+
+.card-grid__rarity {
+  font-size: 12px;
+}
+
+.card-grid__price {
+  font-weight: bold;
+  font-size: 16px;
+  position: relative;
+}
+
+.card-grid__price div {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  font-size: 12px;
 }
