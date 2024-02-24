@@ -28,7 +28,7 @@ class ListingsController < ApplicationController
 def update
   if @listing.update(listing_params)
     Sale.create(user_id: current_user.id, listing_id: @listing.id)
-    redirect_to cards_path, notice: 'Listing was successfully updated.'
+    redirect_to transactions_listings_path, notice: 'Listing was successfully updated.'
   else
     render :edit
   end
