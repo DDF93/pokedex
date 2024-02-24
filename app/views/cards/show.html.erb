@@ -16,7 +16,7 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
         <div class="card-price">
           Trending Price:<br>
-          <h3><strong><%= number_to_currency(@card.price) %></strong></h3><small>Based on Mint Condition</small><br>
+          <h3><strong><%= number_to_currency(@card.price, unit: "£") %></strong></h3><small>Based on Mint Condition</small><br>
         </div>
         <br>
         <div class="action-buttons">
@@ -34,7 +34,7 @@
           <div class="listing-row">
             <div class="listing-details">
               <div><%= listing.condition %></div>
-              <div><strong><%= number_to_currency(listing.price) %></strong></div>
+              <div><strong><%= number_to_currency(listing.price, unit: "£") %></strong></div>
               <span><span class="username">@<%= listing.user.username %></span> listed <%= rand(1..20) %> days ago</span>
             </div>
             <div class="buy-button">
