@@ -12,4 +12,10 @@ Rails.application.routes.draw do
   resources :cards, only: [:index, :show] do
     resources :listings, only: [:new, :create, :show, :edit, :update]
   end
+
+  resources :listings, only: [:show, :update, :destroy] do
+    collection do
+      get 'transactions'
+    end
+  end
 end
