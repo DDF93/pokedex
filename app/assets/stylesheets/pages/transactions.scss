@@ -155,3 +155,9 @@
   position: absolute;
   bottom: 10px;
 }
+
+.text-link {
+  color: inherit; /* Use the default text color */
+  text-decoration: none; /* Remove underline */
+  cursor: text; /* Use the default text cursor */
+}

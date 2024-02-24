@@ -3,10 +3,13 @@
     <h2>My Purchases <span class="purchase-count"><%= @bought_sales.count %></span></h2>
     <% @bought_sales.each do |sale| %>
       <div class="transaction-box">
+        <%= link_to card_path(sale.listing.card) do %>
         <img src="<%= sale.listing.card.image_url %>" alt="Card image" class="transaction-card-image">
+        <% end %>
         <div class="transaction-details">
           <div class="name-and-condition">
-            <span class="transaction-card-name"><%= sale.listing.card.name %></span>
+            <span class="transaction-card-name">
+            <%= link_to sale.listing.card.name, card_path(sale.listing.card), class: "text-link" %></span>
             <span class="transaction-condition">Condition: <%= sale.listing.condition %></span>
           </div>
           <div class="rarity-box">
@@ -32,10 +35,12 @@
     <% @my_listings.each do |listing| %>
     <div id="listing_<%= listing.id %>">
       <div class="transaction-box">
+        <%= link_to card_path(listing.card) do %>
         <img src="<%= listing.card.image_url %>" alt="Card image" class="transaction-card-image">
+        <% end %>
         <div class="transaction-details">
           <div class="name-and-condition">
-            <span class="transaction-card-name"><%= listing.card.name %></span>
+          <span class="transaction-card-name"><%= link_to listing.card.name, card_path(listing.card), class: "text-link" %> </span>
             <span class="transaction-condition">Condition: <%= listing.condition %></span>
           </div>
           <div class="rarity-box">
