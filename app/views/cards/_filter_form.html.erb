@@ -1,7 +1,7 @@
 <%= form_tag(cards_path, method: "get") do %>
   <div class="form-group">
     <%= label_tag :search, "Search by name:" %>
-    <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Enter card name" %>
+    <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Enter..." %>
   </div>
 
   <div class="form-group">
@@ -10,14 +10,17 @@
   </div>
 
   <div class="form-group">
-    <%= label_tag :min_price, "Minimum Price (£):" %>
-    <%= text_field_tag :min_price, params[:min_price], class: "form-control", placeholder: "Enter min price" %>
+    <%= label_tag :min_price, "Min Price:" %>
+    <%= text_field_tag :min_price, params[:min_price], class: "form-control", placeholder: "Enter..." %>
   </div>
 
   <div class="form-group">
-    <%= label_tag :max_price, "Maximum Price (£):" %>
-    <%= text_field_tag :max_price, params[:max_price], class: "form-control", placeholder: "Enter max price" %>
+    <%= label_tag :max_price, "Max Price:" %>
+    <%= text_field_tag :max_price, params[:max_price], class: "form-control", placeholder: "Enter..." %>
   </div>
-
-  <%= submit_tag "Filter", class: "btn btn-primary" %>
+<br>
+  <div class="form-group">
+      <%= submit_tag "Filter", class: "btn btn-dark" %>
+      <span class="clear-filter">Clear Filters</span>
+    </div>
 <% end %>

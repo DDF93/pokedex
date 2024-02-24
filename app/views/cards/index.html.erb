@@ -1,10 +1,17 @@
 <div class="container-fluid">
-          <h2 class="title-centered">Start your adventure: become a Pokédex Master!</h2>
+  <h2 class="title-centered">Start your adventure: become a Pokédex Master!</h2>
   <div class="row">
-    <div class="col-md-3  mb-5" style="position: relative; "> <!-- Adjusted margin top and added margin bottom -->
-      <%= render 'filter_form' %>
+    <div class="col-md-2 mb-5" style="position: sticky; top: 20px;"> <!-- Added sticky position and top spacing -->
+      <div class="filters-panel">
+        <div class="filters-header">
+          <h5>Filters</h5>
+        </div>
+        <div class="filters-content">
+          <%= render 'filter_form' %>
+        </div>
+      </div>
     </div>
-    <div class="col-md-9 overflow-auto"> <!-- Add overflow-auto class for overflow -->
+    <div class="col-md-9 overflow-auto">
       <div class="container">
         <div class="row">
           <% @cards.each do |card| %>
