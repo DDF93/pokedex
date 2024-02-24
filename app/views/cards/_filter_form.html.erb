@@ -1,0 +1,22 @@
+<%= simple_form_for(cards_path, method: "get") do |f| %>
+  <div class="form-group">
+    <%= f.label :search, "Search by name:" %>
+    <%= f.input :search, input_html: { value: params[:search], class: "form-control", placeholder: "Enter card name" }, required: false %>
+  </div>
+
+  <div class="form-group">
+    <div class="checkbox-container">
+      <%= f.input :rarity, collection: @rarities.unshift("All"), as: :check_boxes, checked: params[:rarity], required: false %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :min_price, input_html: { value: params[:min_price], class: "form-control", placeholder: "Enter min price" }, required: false %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :max_price, input_html: { value: params[:max_price], class: "form-control", placeholder: "Enter max price" }, required: false %>
+  </div>
+
+  <%= f.button :submit, "Filter", class: "btn btn-primary" %>
+<% end %>
