@@ -15,7 +15,36 @@
       <%= image_tag("Banner-3.jpg", class: "d-block w-100", alt: "...") %>
     </div>
   </div>
+  <div class="carousel-caption d-none d-md-block">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h1 class="text-center">Search for your first card</h1>
+        <%= form_tag(cards_path, method: "get") do %>
+          <div class="form-group">
+            <%= text_field_tag :search, params[:search], class: "form-control search-input", placeholder: "" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+  var placeholderText = ['W', 'h', 'o', "'", 's', ' ', 't', 'h', 'a', 't', ' ', 'P', 'o', 'k', 'e', 'm', 'o', 'n', '?', ' ', '🔍'];
+  var input = document.getElementById('search');
+
+  function typePlaceholder(i = 0) {
+    if (i < placeholderText.length) {
+      input.setAttribute('placeholder', input.getAttribute('placeholder') + placeholderText[i]);
+      setTimeout(function() { typePlaceholder(i + 1); }, 100); // adjust the speed of typing here
+    }
+  }
+
+  // Only run the typing animation if the placeholder is empty
+  if (!input.getAttribute('placeholder')) {
+    typePlaceholder();
+  }
+</script>
 
 <div class="container mt-5">
   <div class="row">
@@ -27,18 +56,24 @@
               <%= link_to card_path(card), class: 'card' do %>
                 <%= image_tag(card.image_url, alt: "Description", class: "img-fluid") %>
               <% end %>
-              <div class="card__content text-center">
-                <div class="card__title">
-                  <%= card.name %>
-                </div>
-                <div class="card__price">
-                  <%= number_to_currency(card.price, unit: "£") %>
-                </div>
+          <div class="card-grid__content" style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div style="flex-grow: 1;">
+              <div class="card-grid__title" style="font-size: 16px;">
+                <%= card.name %>
+              </div>
+              <div class="card-grid__rarity" style="font-size: 12px; margin-top: -5px;">
+                <%= card.rarity %>
               </div>
             </div>
+            <div class="card-grid__price" style="font-weight: bold; font-size: 16px;">
+              <%= number_to_currency(card.price, unit: "£") %>
+              <div style="text-align: right; font-size: 12px;">&rarr;</div>
+            </div>
+          </div>
+        </div>
         <% end %>
       </div>
-      <ul class="list-group">
+      <ul class="list-group" style="margin-top: 20px;">
         <% @best_sellers.drop(3).each do |card| %>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             <%= link_to card.name, card_path(card) %>
@@ -47,6 +82,7 @@
         <% end %>
       </ul>
     </div>
+
     <div class="col-md-6">
       <h2 class="mb-4">Best Bargains</h2>
       <div class="row">
@@ -55,18 +91,24 @@
               <%= link_to card_path(card), class: 'card' do %>
                 <%= image_tag(card.image_url, alt: "Description", class: "img-fluid") %>
               <% end %>
-              <div class="card__content text-center">
-                <div class="card__title">
-                  <%= card.name %>
-                </div>
-                <div class="card__price">
-                  <%= number_to_currency(card.price, unit: "£") %>
-                </div>
+          <div class="card-grid__content" style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div style="flex-grow: 1;">
+              <div class="card-grid__title" style="font-size: 16px;">
+                <%= card.name %>
+              </div>
+              <div class="card-grid__rarity" style="font-size: 12px; margin-top: -5px;">
+                <%= card.rarity %>
               </div>
             </div>
+            <div class="card-grid__price" style="font-weight: bold; font-size: 16px;">
+              <%= number_to_currency(card.price, unit: "£") %>
+              <div style="text-align: right; font-size: 12px;">&rarr;</div>
+            </div>
+          </div>
+        </div>
         <% end %>
       </div>
-      <ul class="list-group">
+      <ul class="list-group" style="margin-top: 20px;">
         <% @best_bargains.drop(3).each do |card| %>
           <li class="list-group-item d-flex justify-content-between align-items-center">
             <%= link_to card.name, card_path(card) %>
