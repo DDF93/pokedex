@@ -1,0 +1,27 @@
+.container-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 6rem;
+  width: 80%;
+  max-width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  color: #fff;
+}
+
+.btn-md {
+  padding: 5px 10px;
+  font-size: 18px;
+}

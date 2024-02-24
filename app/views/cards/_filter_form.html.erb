@@ -1,7 +1,6 @@
 <%= simple_form_for(cards_path, method: "get") do |f| %>
   <div class="form-group">
-    <%= f.label :search, "Search by name:" %>
-    <%= f.input :search, input_html: { value: params[:search], class: "form-control", placeholder: "Enter card name" }, required: false %>
+    <%= f.input :Card_name, input_html: { value: params[:search], class: "form-control", placeholder: "Pikachu" }, required: false %>
   </div>
 
   <div class="form-group">
