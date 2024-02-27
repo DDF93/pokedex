@@ -1,0 +1,48 @@
+<%= render 'shared/sidenav' %>
+
+<div class="main-content">
+  <div class="transactions-container">
+    <div class="transactions-section">
+      <h2>My Purchases <span class="purchase-count"><span class="box-counter"><%= @bought_sales.count %></span></span></h2>
+      <% if @bought_sales.any? %>
+      <table class="transaction-table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Card</th>
+            <th>Condition</th>
+            <th>Price</th>
+            <th>Order</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @bought_sales.each do |sale| %>
+            <tr>
+              <td>
+                <%= link_to card_path(sale.listing.card) do %>
+                  <img src="<%= sale.listing.card.image_url %>" alt="Card image">
+                <% end %>
+              </td>
+              <td>
+                <span class="transaction-card-name">
+                  <%= link_to sale.listing.card.name, card_path(sale.listing.card), class: "text-link" %><br>
+                </span>
+                <span><strong>Rarity:</strong> <%= sale.listing.card.rarity %></span>
+              </td>
+              <td><%= sale.listing.condition %></td>
+              <td><strong><%= number_to_currency(sale.listing.price, unit: "£") %></strong></td>
+              <td>
+                <div class="user-info">
+                  <p>Purchased from <span><%= sale.listing.user.username %></span> on <%= sale.created_at.strftime('%b %d') %></p>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% else %>
+        <p>You have not purchased any cards.</p>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -46,6 +46,19 @@ def transactions
   @bought_sales = Sale.includes(listing: [:card, :user]).where(user_id: current_user.id)
 end
 
+def my_purchases
+  @my_listings = Listing.where(user_id: current_user.id)
+  @bought_sales = Sale.includes(listing: [:card, :user]).where(user_id: current_user.id)
+end
+
+def items_for_sale
+  @items_for_sale = Listing.where(user_id: current_user.id).where(sold: false)
+end
+
+def sold_items
+  @sold_items = Listing.where(user_id: current_user.id).where(sold: true)
+end
+
 
   private
 
