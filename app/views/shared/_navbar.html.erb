@@ -12,6 +12,9 @@
         <li class="nav-item">
           <%= link_to "Browse Cards", cards_path, class: "nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "Contact Us", contact_path, class: "nav-link" %>
+        </li>
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "My Transactions", transactions_listings_path, class: "nav-link" %>
