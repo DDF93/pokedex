@@ -133,7 +133,6 @@ GEM
     ffi (1.16.3)
     font-awesome-sass (6.5.1)
       sassc (~> 2.0)
-    geocoder (1.8.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -287,6 +286,7 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.3.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.13)
@@ -307,7 +307,6 @@ DEPENDENCIES
   error_highlight (>= 0.4.0)
   faker
   font-awesome-sass (~> 6.1)
-  geocoder
   importmap-rails
   jbuilder
   json
@@ -323,6 +322,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
+  will_paginate
 
 RUBY VERSION
    ruby 3.1.2p20

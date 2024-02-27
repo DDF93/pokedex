@@ -1,3 +1,4 @@
+
 class CardsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
@@ -24,6 +25,7 @@ class CardsController < ApplicationController
       @cards = @cards.order("RANDOM()").limit(48)
     end
 
+    @cards = @cards.paginate(page: params[:page], per_page: 24)
     @rarities = Card.where.not(rarity: nil).pluck(:rarity).uniq.sort
   end
 
