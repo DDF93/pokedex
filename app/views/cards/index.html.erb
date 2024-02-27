@@ -37,6 +37,11 @@
           <% end %>
         </div>
       </div>
+      <div class="pagination-container "> <!-- New container for both pagination and card grid -->
+        <div class="pagination">
+          <%= will_paginate @cards %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
