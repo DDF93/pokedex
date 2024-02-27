@@ -1,72 +1,100 @@
 <div class="transactions-container">
   <div class="transaction-section">
-    <h2>My Purchases <span class="purchase-count"><%= @bought_sales.count %></span></h2>
-    <% @bought_sales.each do |sale| %>
-      <div class="transaction-box">
-        <%= link_to card_path(sale.listing.card) do %>
-        <img src="<%= sale.listing.card.image_url %>" alt="Card image" class="transaction-card-image">
+    <h2>My Sales
+      <span class="sales-count for-sale" id="sales-count-for-sale">
+        <span class="box-counter-for-sale"><%= @my_listings.select {|listing| !listing.sale.present? }.count %> For Sale</span>
+      </span>
+      <span class="sales-count sold" id="sales-count-sold">
+        <span class="box-counter-sold"><%= @my_listings.select {|listing| listing.sale.present? }.count %> Sold</span>
+      </span>
+    </h2>
+    <table class="transaction-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Card</th>
+          <th>Condition</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @my_listings.each do |listing| %>
+          <tr>
+            <td>
+              <%= link_to card_path(listing.card) do %>
+                <img src="<%= listing.card.image_url %>" alt="Card image">
+                <% if !listing.sale.present? %>
+                  <div class="for-sale-overlay">For Sale</div>
+                <% elsif listing.sale.present? %>
+                  <div class="sold-overlay">Sold</div>
+                <% end %>
+              <% end %>
+            </td>
+            <td>
+              <span class="transaction-card-name">
+                <%= link_to listing.card.name, card_path(listing.card), class: "text-link" %><br>
+              </span>
+              <span><strong>Rarity:</strong> <%= listing.card.rarity %></span>
+            </td>
+            <td><%= listing.condition %></td>
+            <td><strong><%= number_to_currency(listing.price, unit: "£") %></strong></td>
+            <td>
+              <% if listing.sale.present? %>
+                <div class="user-info">
+                  <p>Sold to <span><%= listing.sale.user.username %></span> on <%= listing.sale.created_at.strftime('%b %d') %></p>
+                </div>
+              <% else %>
+                <%= link_to 'Delete', listing_path(listing.id),
+                    data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' },
+                    class: 'delete-button' %>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
-        <div class="transaction-details">
-          <div class="name-and-condition">
-            <span class="transaction-card-name">
-            <%= link_to sale.listing.card.name, card_path(sale.listing.card), class: "text-link" %></span>
-            <span class="transaction-condition">Condition: <%= sale.listing.condition %></span>
-          </div>
-          <div class="rarity-box">
-            <strong>Rarity:</strong> <%= sale.listing.card.rarity %>
-          </div>
-          <div class="user-info">
-            <p>Bought from <span><%= sale.listing.user.username %></span></p>
-          </div>
-        </div>
-        <div class="transaction-metadata">
-          <div class="transaction-date-box"><%= sale.created_at.strftime('%b %d') %></div>
-          <p class="transaction-price"><strong><%= number_to_currency(sale.listing.price, unit: "£") %></strong></p>
-        </div>
-      </div>
-    <% end %>
+      </tbody>
+    </table>
   </div>
 
   <div class="transaction-section">
-    <h2>My Sales
-    <span class="sales-count for-sale" id="sales-count-for-sale"><%= @my_listings.select {|listing| !listing.sale.present? }.count %> For Sale</span>
-    <span class="sales-count sold" id="sales-count-sold"><%= @my_listings.select {|listing| listing.sale.present? }.count %> Sold</span>
-    </h2>
-    <% @my_listings.each do |listing| %>
-    <div id="listing_<%= listing.id %>">
-      <div class="transaction-box">
-        <%= link_to card_path(listing.card) do %>
-        <img src="<%= listing.card.image_url %>" alt="Card image" class="transaction-card-image">
+    <h2>My Purchases <span class="purchase-count">
+      <span class="purchase-count">
+        <span class="box-counter"><%= @bought_sales.count %></span>
+      </span>
+    </span></h2>
+    <table class="transaction-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Card</th>
+          <th>Condition</th>
+          <th>Price</th>
+          <th>Order</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @bought_sales.each do |sale| %>
+          <tr>
+            <td><%= link_to card_path(sale.listing.card) do %>
+              <img src="<%= sale.listing.card.image_url %>" alt="Card image">
+            <% end %></td>
+            <td>
+              <span class="transaction-card-name">
+                <%= link_to sale.listing.card.name, card_path(sale.listing.card), class: "text-link" %><br>
+              </span>
+              <span><strong>Rarity:</strong> <%= sale.listing.card.rarity %></span>
+            </td>
+            <td><%= sale.listing.condition %></td>
+            <td><strong><%= number_to_currency(sale.listing.price, unit: "£") %></strong></td>
+            <td>
+              <div class="user-info">
+                <p>Purchased from <span><%= sale.listing.user.username %></span></p>
+                <p><%= sale.created_at.strftime('%b %d') %></p>
+              </div>
+            </td>
+          </tr>
         <% end %>
-        <div class="transaction-details">
-          <div class="name-and-condition">
-          <span class="transaction-card-name"><%= link_to listing.card.name, card_path(listing.card), class: "text-link" %> </span>
-            <span class="transaction-condition">Condition: <%= listing.condition %></span>
-          </div>
-          <div class="rarity-box">
-            <strong>Rarity:</strong> <%= listing.card.rarity %>
-          </div>
-          <% if listing.sale.present? %>
-            <div class="user-info">
-              <p>Sold to <span><%= listing.sale.user.username %></span> on <%= listing.sale.created_at.strftime('%b %d') %></p>
-            </div>
-          <% else %>
-            <div class="for-sale">
-              <%= link_to 'Delete', listing_path(listing.id),
-                  data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' },
-                  class: 'delete-button' %>
-            </div>
-          <% end %>
-        </div>
-        <div class="transaction-metadata">
-          <% if listing.sale.present? %>
-            <div class="sale-status sold">SOLD</div>
-          <% else %>
-            <div class="sale-status for-sale">FOR SALE</div>
-          <% end %>
-          <p class="transaction-price"><strong><%= number_to_currency(listing.price, unit: "£") %></strong></p>
-        </div>
-      </div>
-    <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

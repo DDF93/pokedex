@@ -33,7 +33,7 @@
 
 .rarity-box {
   display: inline-block;
-  background-image: linear-gradient(to bottom right, rgb(255, 228, 129), rgb(255, 207, 31));
+  background-image: linear-gradient(to bottom right, rgb(255, 228, 129), #F5D860);
   border-radius: 8px;
   padding: 5px 10px;
   color: rgb(65, 31, 12);
@@ -52,7 +52,7 @@
   display: inline-block;
   margin-bottom: 20px;
   text-decoration: none;
-  color: rgb(47, 92, 255)
+  color: #4BA5FF
 }
 
 .see-more-section .row {
@@ -86,7 +86,7 @@
 }
 
 .username {
-  color: #007bff;
+  color: #4BA5FF;
   font-size: 0.9em;
 }
 
@@ -113,7 +113,7 @@
 }
 
 .btn-success {
-  background-color: #007bff;
+  background-color: #4BA5FF;
   color: white;
   text-decoration: none;
   padding: 5px 10px;
@@ -144,7 +144,7 @@
 .live-indicator {
   height: 10px;
   width: 10px;
-  background-color: #00ff3c;
+  background-color: #4BA5FF;
   border-radius: 50%;
   display: inline-block;
   margin-right: 5px;
@@ -156,7 +156,7 @@
 }
 
 .clear-filter {
-  margin-left: 10px; /* Adjust spacing as needed */
-  color: #909090; /* Very light grey color */
+  margin-left: 10px;
+  color: #909090;
   font-size: 14px;
 }
