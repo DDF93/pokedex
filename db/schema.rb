@@ -16,7 +16,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_202928) do
 
   create_table "cards", force: :cascade do |t|
     t.string "name"
-    t.string "condition"
     t.string "rarity"
     t.string "image_url"
     t.float "price"
