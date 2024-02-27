@@ -1,10 +1,12 @@
-<div class="bg-white rounded p-4 shadow-sm">
-  <h3 class="mb-4 text-center">Shipping address</h3>
+<div class="container bg-white rounded-md p-4 shadow-lg mt-5">
+  <h3 class="text-xl font-semibold mb-4 text-center">Shipping Address</h3>
   <%= simple_form_for @listing, url: { action: :update, id: @listing }, method: :patch do |f| %>
-    <div class="form-group mb-4">
-      <%= f.input :delivery_address, label_html: { class: 'form-label' }, placeholder: 'Enter Delivery Address', input_html: { class: 'form-control' } %>
-    </div>
-    <%= f.hidden_field :sold, value: true %>
+  <div class="mb-4">
+    <%= f.text_field :delivery_address, id: "delivery_address", class: "form-control", placeholder: "Enter Delivery Address" %>
+  </div>
+  <%= f.hidden_field :sold, value: true %>
+  <div class="text-center">
     <%= f.submit "Purchase", class: "btn btn-primary" %>
+  </div>
   <% end %>
 </div>
