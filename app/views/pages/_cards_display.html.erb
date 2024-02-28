@@ -1,0 +1,85 @@
+<div class="mt-5">
+  <h2>Best Sellers</h2>
+</div>
+<div id="bestSellersCarouselIndicators" class="carousel slide mx-auto" data-bs-ride="carousel">
+  <a class="carousel-control-prev" href="#bestSellersCarouselIndicators" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#bestSellersCarouselIndicators" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+  <div class="carousel-inner">
+    <% @best_sellers.each_slice(6).with_index do |cards, index| %>
+      <div class="carousel-item <%= 'active' if index.zero? %>">
+        <div class="row justify-content-center">
+          <% cards.each do |card| %>
+            <div class="col-md-2 each-card">
+              <%= link_to card_path(card), class: 'card' do %>
+                <%= image_tag(card.image_url, alt: "Description", class: "img-fluid") %>
+              <% end %>
+              <div class="card-grid__content" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div style="flex-grow: 1;">
+                  <div class="card-grid__title" style="font-size: 16px;">
+                    <%= card.name %>
+                  </div>
+                  <div class="card-grid__rarity" style="font-size: 12px; margin-top: -5px;">
+                    <%= card.rarity %>
+                  </div>
+                </div>
+                <div class="card-grid__price" style="font-weight: bold; font-size: 16px;">
+                  <%= number_to_currency(card.price, unit: "£") %>
+                  <div style="text-align: right; font-size: 12px;">&rarr;</div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="mt-2">
+  <h2>The Originals</h2>
+</div>
+<div id="theOriginalsCarouselIndicators" class="carousel slide mx-auto" data-bs-ride="carousel">
+  <a class="carousel-control-prev" href="#theOriginalsCarouselIndicators" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#theOriginalsCarouselIndicators" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+  <div class="carousel-inner">
+    <% @original_cards.each_slice(6).with_index do |cards, index| %>
+      <div class="carousel-item <%= 'active' if index.zero? %>">
+        <div class="row justify-content-center">
+          <% cards.each do |card| %>
+            <div class="col-md-2 each-card">
+              <%= link_to card_path(card), class: 'card' do %>
+                <%= image_tag(card.image_url, alt: "Description", class: "img-fluid") %>
+              <% end %>
+              <div class="card-grid__content" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div style="flex-grow: 1;">
+                  <div class="card-grid__title" style="font-size: 16px;">
+                    <%= card.name %>
+                  </div>
+                  <div class="card-grid__rarity" style="font-size: 12px; margin-top: -5px;">
+                    <%= card.rarity %>
+                  </div>
+                </div>
+                <div class="card-grid__price" style="font-weight: bold; font-size: 16px;">
+                  <%= number_to_currency(card.price, unit: "£") %>
+                  <div style="text-align: right; font-size: 12px;">&rarr;</div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
