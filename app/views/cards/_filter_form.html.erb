@@ -1,5 +1,5 @@
 <%= form_tag(cards_path, method: "get") do %>
-  <div class="form-group">
+  <div class="form-group" id="filter-form-search">
     <%= label_tag :search, "Search by name:" %>
     <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Enter..." %>
   </div>
@@ -8,6 +8,7 @@
     <%= label_tag :rarity, "Rarity:" %>
     <%= select_tag :rarity, options_for_select(@rarities.unshift("All"), params[:rarity]), class: "form-control" %>
   </div>
+
 
   <div class="form-group">
     <%= label_tag :min_price, "Min Price:" %>
@@ -18,9 +19,14 @@
     <%= label_tag :max_price, "Max Price:" %>
     <%= text_field_tag :max_price, params[:max_price], class: "form-control", placeholder: "Enter..." %>
   </div>
-<br>
-  <div class="form-group">
-      <%= submit_tag "Filter", class: "btn btn-dark" %>
-      <span class="clear-filter">Clear</span>
+  <br>
+
+    <div class="form-group">
+      <%= submit_tag "Filter", class: "btn btn-dark btn-md mx-auto d-block text-center" %>
+
     </div>
-<% end %>
+  <% end %>
+
+  <div class="form-group">
+    <%= button_to 'Clear', cards_path, method: 'get', params: { search: nil, rarity: nil, min_price: nil, max_price: nil }, class: "btn btn-light btn-md mx-auto d-block text-center" %>
+  </div>
