@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: [:home, :contact]
 
   def home
     @best_sellers = Card.where(id: [25, 6, 9, 3, 131, 143, 130, 149, 150, 151, 94, 89, 91, 92, 95, 59, 65, 62, 94, 89, 91, 92, 95, 59, 65])
