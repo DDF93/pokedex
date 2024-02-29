@@ -3,6 +3,7 @@
 <div class="main-content">
   <div class="transactions-container">
     <div class="transactions-section">
+      <p class="trades-eyebrow">MY TRADES</p>
       <h2>Sold Items <span class="box-counter"><%= @sold_items.count %></span></h2>
       <table class="transaction-table">
         <thead>
@@ -11,7 +12,7 @@
             <th>Card</th>
             <th>Condition</th>
             <th>Sold Price</th>
-            <th>Buyer</th>
+            <th>Buyer Details</th>
           </tr>
         </thead>
         <tbody>
@@ -31,8 +32,9 @@
               <td><%= item.condition %></td>
               <td><strong><%= number_to_currency(item.price, unit: "£") %></strong></td>
               <td>
-              <div class="user-info"><p>Sold to <span><%= item.sale.user.username %></span> on <%= item.sale.created_at.strftime('%b %d') %><br>
-              <i class="fas fa-house fa-sm" style="color: #d2d2d2;"></i> <%= item.delivery_address %></p></div></td></td></td>
+              <div class="user-info"><p><%= [item.sale.user.first_name, item.sale.user.last_name].join(' ').titleize %> (<span><%= item.sale.user.username %></span>)</p>
+              <i class="fas fa-house fa-sm" style="color: #d2d2d2;"></i> <%= item.delivery_address %><br>
+              <i class="fa-regular fa-calendar" style="color: #d2d2d2;"></i> <%= item.sale.created_at.strftime('%b %d') %></div></td></td></td>
             </tr>
           <% end %>
         </tbody>

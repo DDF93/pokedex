@@ -2,5 +2,7 @@
   <a href="/items_for_sale" title="Items for Sale"><i class="fa-solid fa-store"></i></a>
   <a href="/sold_items" title="Sold Items"><i class="fa-solid fa-money-bill"></i></a>
   <a href="/my_purchases" title="My Purchases"><i class="fa-solid fa-box"></i></a>
-  <a href="/settings" class="settings" title="Settings"><i class="fa-solid fa-gear"></i></a>
+  <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "settings", title: "Log Out" do %>
+    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+  <% end %>
 </div>
