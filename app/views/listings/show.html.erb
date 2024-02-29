@@ -1,12 +1,41 @@
-<div class="container bg-white rounded-md p-4 shadow-lg mt-5">
-  <h3 class="text-xl font-semibold mb-4 text-center">Shipping Address</h3>
-  <%= simple_form_for @listing, url: { action: :update, id: @listing }, method: :patch do |f| %>
-  <div class="mb-4">
-    <%= f.text_field :delivery_address, id: "delivery_address", class: "form-control", placeholder: "Enter Delivery Address" %>
-  </div>
-  <%= f.hidden_field :sold, value: true %>
-  <div class="text-center">
-    <%= f.submit "Purchase", class: "btn btn-primary" %>
-  </div>
-  <% end %>
+<div class="container shadow-lg mt-5 p-6 col-md-5">
+  <h3 class="text-xl font-semibold mb-4 text-center pt-3">Shipping Address</h3>
+    <%= simple_form_for @listing, url: { action: :update, id: @listing }, method: :patch do |f| %>
+      <div class="mb-4">
+        <div class="row">
+          <div class="col">
+            <%= f.text_field :first_name, value: @listing.user.first_name, class: "form-control", placeholder: "First Name" %>
+          </div>
+          <div class="col">
+            <%= f.text_field :last_name, value: @listing.user.last_name, class: "form-control", placeholder: "Last Name" %>
+          </div>
+        </div>
+      </div>
+      <div class="mb-4">
+        <%= f.text_field :delivery_address, id: "delivery_address", class: "form-control", placeholder: "Street Address" %>
+      </div>
+      <div class="row mb-4">
+        <div class="col">
+          <%= f.text_field :post_code, class: "form-control", placeholder: "Post Code" %>
+        </div>
+        <div class="col">
+          <%= f.text_field :city, class: "form-control", placeholder: "City" %>
+        </div>
+        <div class="col">
+          <%= f.text_field :country, class: "form-control", placeholder: "Country" %>
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col">
+          <%= f.text_field :phone_number, class: "form-control", placeholder: "Phone Number (Optional)" %>
+        </div>
+        <div class="col">
+          <%= f.email_field :email, value: @listing.user.email, class: "form-control", placeholder: "Email" %>
+        </div>
+      </div>
+      <%= f.hidden_field :sold, value: true %>
+      <div class="text-center pb-3">
+        <%= f.submit "Purchase", class: "btn btn-primary" %>
+      </div>
+    <% end %>
 </div>
