@@ -33,7 +33,20 @@
   transform: translateY(-50%);
 }
 
-.carousel-caption h1 {
-  font-size: 2em; /* adjust as needed */
-  margin-bottom: 20px; /* adjust as needed */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  width: auto;
+  bottom: 0;
+  padding: 0;
+  transform: translateY(-50%);
+  color: black;
+  text-align: center;
+  background: none;
 }

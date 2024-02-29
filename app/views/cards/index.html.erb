@@ -1,7 +1,6 @@
 <div class="container-fluid">
-  <h2 class="title-centered">Expand your Dex</h2>
   <div class="row">
-    <div class="col-md-2 mb-5" style="position: sticky; top: 20px;">
+    <div class="col-md-2 mb-5 mt-4" style="position: sticky; top: 20px; height: 100vh;">
       <div class="filters-panel">
         <div class="filters-header">
           <h5>Filters</h5>
@@ -11,9 +10,10 @@
         </div>
       </div>
     </div>
-    <div class="col-md-9 overflow-auto">
+    <div class="col-md-10 overflow-auto">
       <div class="container">
         <div class="row">
+        <h2 class = "mt-4" style="text-align: left; margin-left: 10px;">Expand your Dex</h2>
           <% @cards.each do |card| %>
             <div class="col-md-2 card-grid" style="padding: 15px;">
               <%= link_to card_path(card), class: 'card' do %>
@@ -35,6 +35,11 @@
               </div>
             </div>
           <% end %>
+        </div>
+      </div>
+      <div class="pagination-container "> <!-- New container for both pagination and card grid -->
+        <div class="pagination">
+          <%= will_paginate @cards %>
         </div>
       </div>
     </div>
