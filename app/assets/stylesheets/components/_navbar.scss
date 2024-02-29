@@ -1,7 +1,11 @@
 .navbar-lewagon {
+  position: fixed;
+  top: 0;
+  width: 100%;
   justify-content: space-between;
   background: #ffffff;
   border-bottom: 1px solid #d9d9d9;
+  z-index: 1000;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,4 +19,8 @@
 .nav-link {
   color: #181818;
   margin-right: 16px;
+}
+
+body {
+  padding-top: 58px;
 }

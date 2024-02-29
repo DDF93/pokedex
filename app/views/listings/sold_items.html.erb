@@ -1,0 +1,42 @@
+<%= render 'shared/sidenav' %>
+
+<div class="main-content">
+  <div class="transactions-container">
+    <div class="transactions-section">
+      <h2>Sold Items <span class="box-counter"><%= @sold_items.count %></span></h2>
+      <table class="transaction-table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Card</th>
+            <th>Condition</th>
+            <th>Sold Price</th>
+            <th>Buyer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @sold_items.each do |item| %>
+            <tr>
+              <td>
+                <%= link_to card_path(item.card) do %>
+                  <img src="<%= item.card.image_url %>" alt="Card image">
+                <% end %>
+              </td>
+              <td>
+                <span class="transaction-card-name">
+                  <%= link_to item.card.name, card_path(item.card), class: "text-link" %><br>
+                </span>
+                <span><strong>Rarity:</strong> <%= item.card.rarity %></span>
+              </td>
+              <td><%= item.condition %></td>
+              <td><strong><%= number_to_currency(item.price, unit: "£") %></strong></td>
+              <td>
+              <div class="user-info"><p>Sold to <span><%= item.sale.user.username %></span> on <%= item.sale.created_at.strftime('%b %d') %><br>
+              <i class="fas fa-house fa-sm" style="color: #d2d2d2;"></i> <%= item.delivery_address %></p></div></td></td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

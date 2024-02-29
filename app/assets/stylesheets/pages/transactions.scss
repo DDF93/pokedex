@@ -1,137 +1,113 @@
+.main-content {
+  margin-left: 60px;
+}
+
 .transactions-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 50px;
+  padding: 20px;
 }
 
-.transaction-section {
-  width: 49%;
-}
-
+.transaction-section,
 .transaction-table {
   width: 100%;
-  border-radius: 6px;
-  border: 1px solid #f2f2f2;
-}
-
-.transaction-table th,
-.transaction-table td {
-  border-bottom: 1px solid #e2e2e2;
-  padding: 10px;
-  position: relative;
-}
-
-.transaction-table th {
-  background-color: #f2f2f2;
-  color: #8e8e8e;
-  font-size: 12px;
-}
-
-.transaction-table td img {
-  max-width: 60px;
-  height: auto;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-.transaction-table .for-sale-overlay,
-.transaction-table .sold-overlay {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  background-color: #181818;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 25px;
-  z-index: 1;
-  font-size: 12px;
-}
-
-.transaction-table .transaction-card-name a {
-  font-weight: bold;
-  margin-bottom: 5px;
-  font-size: 20px;
-  color: #181818;
-  text-decoration: none;
-}
-
-.transaction-table .user-info p {
-  margin-bottom: 0;
-}
-
-.transaction-table .user-info p span {
-  color: #4BA5FF;
-}
-
-.transaction-table .transaction-metadata {
-  position: relative;
-}
-
-.transaction-table .transaction-date-box {
-  background-color: rgb(235, 235, 235);
-  color: #181818;
-  padding: 2px 5px;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.transaction-table .transaction-price {
-  font-weight: bold;
-}
-
-.transaction-table .sale-status {
-  white-space: nowrap;
-  padding: 2px 5px;
-  color: white;
-  border-radius: 25px;
-  font-size: 14px;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-}
-
-.for-sale-overlay {
-  background-color: #181818;
-}
-
-.sold-overlay {
-  background-color: #181818;
-}
-
-.delete-button {
-  color: #EA3C32;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.box-counter-for-sale {
-  background-color: #181818;
-  color: rgb(255, 255, 255);
-  border-radius: 25px;
-  padding: 5px 10px;
-  font-size: 14px;
-  margin-left: 10px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.box-counter-sold {
-  background-color: #4BA5FF;
-  color: rgb(255, 255, 255);
-  border-radius: 25px;
-  padding: 5px 10px;
-  font-size: 14px;
-  margin-left: 10px;
-  display: inline-block;
-  vertical-align: middle;
 }
 
 .box-counter {
   background-color: #181818;
-  color: rgb(255, 255, 255);
-  border-radius: 25px;
+  color: white;
   padding: 5px 10px;
-  font-size: 14px;
+  border-radius: 25px;
+  font-size: 12px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.transaction-table {
+  margin-top: 30px;
+  border-radius: 6px;
+  border: 1px solid #f2f2f2;
+
+  th,
+  td {
+    border-bottom: 1px solid #e2e2e2;
+    padding: 10px;
+    position: relative;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    color: #8e8e8e;
+    font-size: 12px;
+  }
+
+  td img {
+    max-width: 60px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  .for-sale-overlay,
+  .sold-overlay {
+    background-color: #181818;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 25px;
+    font-size: 12px;
+    z-index: 1;
+  }
+
+  .sold-overlay {
+    background-color: #181818;
+  }
+
+  .transaction-card-name a {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: #181818;
+    text-decoration: none;
+  }
+
+  .user-info p {
+    margin-bottom: 0;
+  }
+
+  .user-info p span,
+  .delete-button {
+    color: #4BA5FF;
+  }
+
+  .transaction-metadata,
+  .transaction-date-box,
+  .transaction-price,
+  .sale-status {
+    position: relative;
+    font-size: 14px;
+  }
+
+  .transaction-date-box {
+    background-color: rgb(235, 235, 235);
+    color: #181818;
+    padding: 2px 5px;
+    border-radius: 4px;
+  }
+
+  .transaction-price {
+    font-weight: bold;
+  }
+
+  .sale-status {
+    white-space: nowrap;
+    padding: 2px 5px;
+    color: white;
+    border-radius: 25px;
+    top: 5px;
+    right: 5px;
+  }
+}
+
+.box-counter-for-sale,
+.box-counter-sold {
   margin-left: 10px;
   display: inline-block;
   vertical-align: middle;
@@ -140,15 +116,10 @@
 .transactions-container .transaction-section h2 {
   display: flex;
   align-items: center;
+  margin-top: 30px;
   margin-bottom: 30px;
 }
 
 .transactions-container .transaction-section h2 span {
   margin-left: 5px;
-}
-
-.transactions-container .transaction-section .transaction-table {
-  border-radius: 6px;
-  width: 100%;
-  border: 1px solid #D9D9D9;
 }
