@@ -13,5 +13,9 @@
 .pagination > a,
 .pagination > .current,
 .pagination > .next_page {
-  padding: 10px 20px;
+  padding: 0px 20px;
+}
+
+.pagination > span {
+  vertical-align: middle;
 }
