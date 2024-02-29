@@ -53,9 +53,6 @@
   margin-bottom: 40px;
 }
 
-.card {
-  border-radius: 15px;
-}
 
 .card-grid {
   padding: 10px;
@@ -101,4 +98,39 @@
 .card {
   border: none;
   background-color: transparent !important;
+}
+
+.dropdown-wrapper {
+  position: relative;
+}
+
+.arrow-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 0.9rem;
+}
+
+.form-group {
+  input[type="text"],
+  input[type="number"],
+  select {
+    border-radius: 8px;
+  }
+
+  input[name="min_price"],
+  input[name="max_price"] {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+  .input-group-text {
+
+    &:first-child {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+  }
 }

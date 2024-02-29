@@ -6,27 +6,39 @@
 
   <div class="form-group">
     <%= label_tag :rarity, "Rarity:" %>
-    <%= select_tag :rarity, options_for_select(@rarities.unshift("All"), params[:rarity]), class: "form-control" %>
+    <div class="dropdown-wrapper">
+      <%= select_tag :rarity, options_for_select(@rarities.unshift("All"), params[:rarity]), class: "form-control" %>
+      <i class="fas fa-chevron-down arrow-icon"></i>
+    </div>
   </div>
-
 
   <div class="form-group">
     <%= label_tag :min_price, "Min Price:" %>
-    <%= text_field_tag :min_price, params[:min_price], class: "form-control", placeholder: "Enter..." %>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">£</span>
+      </div>
+      <%= text_field_tag :min_price, params[:min_price], class: "form-control", placeholder: "Enter..." %>
+    </div>
   </div>
 
   <div class="form-group">
     <%= label_tag :max_price, "Max Price:" %>
-    <%= text_field_tag :max_price, params[:max_price], class: "form-control", placeholder: "Enter..." %>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">£</span>
+      </div>
+      <%= text_field_tag :max_price, params[:max_price], class: "form-control", placeholder: "Enter..." %>
+    </div>
   </div>
   <br>
 
-    <div class="form-group">
-      <%= submit_tag "Filter", class: "btn btn-dark btn-md mx-auto d-block text-center" %>
+  <div class="form-group">
+    <%= submit_tag "Filter", class: "btn btn-dark btn-sm mx-auto d-block text-center w-50" %>
 
-    </div>
-  <% end %>
+  </div>
+<% end %>
 
   <div class="form-group">
-    <%= button_to 'Clear', cards_path, method: 'get', params: { search: nil, rarity: nil, min_price: nil, max_price: nil }, class: "btn btn-light btn-md mx-auto d-block text-center" %>
+    <%= button_to 'Clear', cards_path, method: 'get', params: { search: nil, rarity: nil, min_price: nil, max_price: nil }, class: "btn btn-light btn-sm mx-auto d-block text-center w-50" %>
   </div>
