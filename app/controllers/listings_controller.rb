@@ -67,7 +67,7 @@ end
   end
 
   def listing_params
-    params.require(:listing).permit(:card_id, :delivery_address, :sold, :condition)
+    params.require(:listing).permit(:card_id, :delivery_address, :sold, :condition, :post_code, :city, :country, :phone_number)
   end
 
   def calculate_listing_price(condition)
