@@ -3,9 +3,9 @@
   width: 50px;
   position: fixed;
   z-index: 1;
-  top: 59px;
+  top: 58px;
   left: 0;
-  background-color: white;
+  background-color: $gray;
   padding-top: 20px;
   border-right: 1px solid #cacaca;
 }
@@ -14,7 +14,7 @@
   padding: 3px 3px 30px 3px;
   text-decoration: none;
   font-size: 20px;
-  color: #b6b6b6;
+  color: #eeeeee;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,7 +26,7 @@
   bottom: -20px;
   left: 50%;
   background-color: $gray;
-  color: #9a9a9a;
+  color: #bdbdbd;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 12px;
@@ -37,7 +37,7 @@
 }
 
 .sidenav a:hover {
-  color: #9a9a9a;
+  color: #bdbdbd;
 }
 
 .settings {
@@ -52,5 +52,5 @@
 
 .settings i {
   font-size: 22px;
-  color: #b6b6b6;
+  color: #6d6d6d;
 }

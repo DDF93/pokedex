@@ -38,7 +38,7 @@ def destroy
   @listing = Listing.find(params[:id])
   @listing.destroy
   @my_listings = Listing.where(user_id: current_user.id)
-  redirect_to transactions_listings_path
+  redirect_to items_for_sale_path, notice: 'Listing successfully removed.'
 end
 
 def transactions

@@ -1,5 +1,7 @@
 .main-content {
   margin-left: 60px;
+  margin-top: 8px;
+  min-height: 95vh;
 }
 
 .transactions-container {
@@ -34,7 +36,7 @@
   }
 
   th {
-    background-color: #f2f2f2;
+    background-color: #f4f4f4;
     color: #8e8e8e;
     font-size: 12px;
   }
@@ -69,7 +71,7 @@
   }
 
   .user-info p {
-    margin-bottom: 0;
+    margin-bottom: 5px;
   }
 
   .user-info p span,
@@ -122,4 +124,18 @@
 
 .transactions-container .transaction-section h2 span {
   margin-left: 5px;
+}
+
+.trades-eyebrow {
+  font-size: 10px;
+  color: #8e8e8e;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+}
+
+.btn-danger {
+  color: white;
 }

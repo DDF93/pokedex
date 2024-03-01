@@ -1,41 +1,30 @@
-<!-- Remove underline on <a> tags -->
 <style>
   a {
     text-decoration: none;
   }
 </style>
 
-<!-- Footer -->
-<footer class="text-center text-white" style="background-color: #3f51b5">
-  <!-- Grid container -->
+<footer class="text-center text-white" style="background-color: #181818">
   <div class="container">
-    <!-- Section: Links -->
     <section class="mt-5">
-      <!-- Grid row-->
       <div class="row text-center d-flex justify-content-center pt-5">
         <% footer_links = [
-          { name: 'Browse', href: 'http://localhost:3000/cards' },
-          { name: 'Transactions', href: 'http://localhost:3000/listings/transactions' },
-          { name: 'Help', href: '#!' },
-          { name: 'Contact', href: 'http://localhost:3000/contact' }
+          { name: 'Browse Cards', href: 'http://localhost:3000/cards' },
+          { name: 'My Trades', href: 'http://localhost:3000/items_for_sale' },
+          { name: 'Help & Support', href: 'http://localhost:3000/contact' }
         ] %>
         <% footer_links.each do |link| %>
-          <!-- Grid column -->
           <div class="col-md-2">
             <h6 class="text-uppercase font-weight-bold">
               <a href="<%= link[:href] %>" class="text-white"><%= link[:name] %></a>
             </h6>
           </div>
-          <!-- Grid column -->
         <% end %>
       </div>
-      <!-- Grid row-->
     </section>
-    <!-- Section: Links -->
 
     <hr class="my-5" />
 
-    <!-- Section: Text -->
     <section class="mb-5">
       <div class="row d-flex justify-content-center">
         <div class="col-lg-8">
@@ -50,9 +39,7 @@
         </div>
       </div>
     </section>
-    <!-- Section: Text -->
 
-    <!-- Section: Social -->
     <section class="text-center mb-5">
       <% social_links = [
         { icon: 'fab fa-x-twitter', href: '' },
@@ -66,15 +53,10 @@
         </a>
       <% end %>
     </section>
-    <!-- Section: Social -->
   </div>
-  <!-- Grid container -->
 
-  <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
     © 2024 Copyright:
     <a class="text-white" href="https://lewagon.com/">Pokedex.com</a>
   </div>
-  <!-- Copyright -->
 </footer>
-<!-- Footer -->
