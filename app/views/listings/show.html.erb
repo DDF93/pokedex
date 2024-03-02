@@ -1,16 +1,7 @@
+<br><center><h2>Complete your order</h2></center>
 <div class="container shadow-lg mt-5 p-6 col-md-5">
-  <h3 class="text-xl font-semibold mb-4 text-center pt-3">Shipping Address</h3>
+  <h4 class="text-xl font-semibold mb-4 text-center pt-3">Add your shipping address</h4>
     <%= simple_form_for @listing, url: { action: :update, id: @listing }, method: :patch do |f| %>
-      <div class="mb-4">
-        <div class="row">
-          <div class="col">
-            <%= f.text_field :first_name, value: @listing.user.first_name, class: "form-control", placeholder: "First Name" %>
-          </div>
-          <div class="col">
-            <%= f.text_field :last_name, value: @listing.user.last_name, class: "form-control", placeholder: "Last Name" %>
-          </div>
-        </div>
-      </div>
       <div class="mb-4">
         <%= f.text_field :delivery_address, id: "delivery_address", class: "form-control", placeholder: "Street Address" %>
       </div>
@@ -30,12 +21,12 @@
           <%= f.text_field :phone_number, class: "form-control", placeholder: "Phone Number (Optional)" %>
         </div>
         <div class="col">
-          <%= f.email_field :email, value: @listing.user.email, class: "form-control", placeholder: "Email" %>
+          <%= f.email_field :email, value: current_user.email, class: "form-control", placeholder: "Email" %>
         </div>
       </div>
       <%= f.hidden_field :sold, value: true %>
       <div class="text-center pb-3">
-        <%= f.submit "Purchase", class: "btn btn-primary" %>
+        <%= f.submit "Place Order", class: "btn btn-primary" %>
       </div>
     <% end %>
 </div>

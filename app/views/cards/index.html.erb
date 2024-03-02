@@ -37,10 +37,11 @@
           <% end %>
         </div>
       </div>
-      <div class="pagination-container "> <!-- New container for both pagination and card grid -->
+      <div class="pagination-container">
         <div class="pagination">
-          <%= will_paginate @cards %>
+          <%= will_paginate @cards, previous_label: '&larr;'.html_safe, next_label: '&rarr;'.html_safe, inner_window: 1, outer_window: 0, page_gap: '...', renderer: WillPaginate::ActionView::LinkRenderer %>
         </div>
+      </div>
       </div>
     </div>
   </div>

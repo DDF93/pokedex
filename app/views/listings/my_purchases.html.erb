@@ -4,7 +4,7 @@
   <div class="transactions-container">
     <div class="transactions-section">
       <p class="trades-eyebrow">MY TRADES</p>
-      <h2>My Orders <span class="purchase-count"><span class="box-counter"><%= @bought_sales.count %></span></span></h2>
+      <h2>My Purchases <span class="purchase-count"><span class="box-counter"><%= @bought_sales.count %></span></span></h2>
       <% if @bought_sales.any? %>
       <table class="transaction-table">
         <thead>
@@ -33,7 +33,7 @@
               <td><%= sale.listing.condition %></td>
               <td><strong><%= number_to_currency(sale.listing.price, unit: "£") %></strong></td>
               <td>
-                <div class="user-info"><p>Purchased from <%= [sale.user.first_name, sale.user.last_name].join(' ').titleize %> (<span><%= sale.user.username %></span>)</p>
+                <div class="user-info"><p>Purchased from <%= [sale.listing.user.first_name, sale.listing.user.last_name].join(' ').titleize %> (<span><%= sale.listing.user.username %></span>)</p>
                 <i class="fa-regular fa-calendar" style="color: #d2d2d2;"></i> <%= sale.created_at.strftime('%b %d') %></div>
               </td>
             </tr>
