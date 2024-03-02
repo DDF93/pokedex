@@ -1,4 +1,4 @@
-.carousel-item {
+#heroCarousel .carousel-item {
   height: 500px;
 
   img {
@@ -33,20 +33,13 @@
   transform: translateY(-50%);
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: black;
+.carousel-container {
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-  position: absolute;
-  top: 50%;
-  width: auto;
-  bottom: 0;
-  padding: 0;
-  transform: translateY(-50%);
-  color: black;
+.cards-header{
   text-align: center;
-  background: none;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
