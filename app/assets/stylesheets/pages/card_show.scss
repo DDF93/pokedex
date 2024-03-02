@@ -31,12 +31,34 @@
   margin-bottom: 10px;
 }
 
+.rarity-common {
+  background-image: linear-gradient(to bottom right, #dcdcdc, #818181);
+}
+
+.rarity-uncommon {
+  background-image: linear-gradient(to bottom right, #69c56f, #24972c);
+  color: #eeffef;
+}
+
+.rarity-rare {
+  background-image: linear-gradient(to bottom right, $blue, #0080ff);
+  color: #edf6ff;
+}
+
+.rarity-hyper-rare {
+  background-image: linear-gradient(to bottom right, #bc97ff, #762cff);
+  color: #f2ebff;
+}
+
+.rarity-special {
+  background-image: linear-gradient(to bottom right, #ffeb9a, #F5D860);
+  color: #514207;
+}
+
 .rarity-box {
   display: inline-block;
-  background-image: linear-gradient(to bottom right, rgb(255, 228, 129), #F5D860);
   border-radius: 8px;
   padding: 5px 10px;
-  color: rgb(65, 31, 12);
 }
 
 .card-price {

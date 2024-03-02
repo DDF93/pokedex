@@ -9,7 +9,7 @@
 
       <div class="card-info">
         <h1><%= @card.name %></h1>
-        <div class="rarity-box">
+        <div class="rarity-box <%= rarity_class(@card.rarity) %>">
           <strong>Rarity:</strong> <%= @card.rarity %>
         </div>
         <br>
