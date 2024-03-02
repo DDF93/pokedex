@@ -1,21 +1,39 @@
-/* Center the pagination links */
+.pagination-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .pagination {
+  margin-top: 20px;
   text-align: center;
   justify-content: center;
-}
+  display: flex;
+  list-style: none;
 
-/* Adjust the spacing between pagination links */
-// .pagination > li {
-//   margin-right: 5px;
-// }
+  a,
+  .current,
+  .next_page,
+  .previous_page {
+    padding: 5px 10px;
+    margin: 0 10px;
+    display: inline-block;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    text-decoration: none;
+    color: $gray;
 
-/* Adjust the padding inside each pagination link */
-.pagination > a,
-.pagination > .current,
-.pagination > .next_page {
-  padding: 0px 20px;
-}
+    &:hover {
+      border-color: $gray;
+    }
+  }
 
-.pagination > span {
-  vertical-align: middle;
+  .current {
+    background-color: $gray;
+    color: #fff;
+    font-style: normal;
+  }
+
+  a {
+    background-color: #f9f9f9;
+  }
 }
