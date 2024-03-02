@@ -28,7 +28,7 @@ class ListingsController < ApplicationController
 def update
   if @listing.update(listing_params)
     Sale.create(user_id: current_user.id, listing_id: @listing.id)
-    redirect_to transactions_listings_path, notice: 'Your order is on the way!'
+    redirect_to my_purchases_path, notice: 'Your order is on the way!'
   else
     render :edit
   end
