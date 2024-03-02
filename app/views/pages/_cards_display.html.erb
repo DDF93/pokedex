@@ -1,16 +1,10 @@
-<div class="mt-5">
+<div class="cards-header">
   <h2>Best Sellers</h2>
 </div>
+
 <div id="bestSellersCarouselIndicators" class="carousel slide mx-auto" data-bs-ride="carousel">
-  <a class="carousel-control-prev" href="#bestSellersCarouselIndicators" role="button" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#bestSellersCarouselIndicators" role="button" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </a>
-  <div class="carousel-inner">
+  <div class="carousel-container">
+    <div class="carousel-inner">
     <% @best_sellers.each_slice(6).with_index do |cards, index| %>
       <div class="carousel-item <%= 'active' if index.zero? %>">
         <div class="row justify-content-center">
@@ -38,22 +32,17 @@
         </div>
       </div>
     <% end %>
+    </div>
   </div>
 </div>
 
-<div class="mt-2">
+<div class="cards-header">
   <h2>The Originals</h2>
 </div>
-<div id="theOriginalsCarouselIndicators" class="carousel slide mx-auto" data-bs-ride="carousel">
-  <a class="carousel-control-prev" href="#theOriginalsCarouselIndicators" role="button" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#theOriginalsCarouselIndicators" role="button" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </a>
-  <div class="carousel-inner">
+
+<div id="originalsCarouselIndicators" class="carousel slide mx-auto" data-bs-ride="carousel">
+  <div class="carousel-container">
+    <div class="carousel-inner">
     <% @original_cards.each_slice(6).with_index do |cards, index| %>
       <div class="carousel-item <%= 'active' if index.zero? %>">
         <div class="row justify-content-center">
@@ -81,5 +70,6 @@
         </div>
       </div>
     <% end %>
+    </div>
   </div>
 </div>
