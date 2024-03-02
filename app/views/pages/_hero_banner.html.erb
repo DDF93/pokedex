@@ -5,20 +5,21 @@
     <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
   <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="3000">
+    <div class="carousel-item active" data-bs-interval="3500">
         <%= image_tag("Banner-1.jpg", class: "d-block w-100", alt: "...") %>
     </div>
-    <div class="carousel-item" data-bs-interval="3000">
+    <div class="carousel-item" data-bs-interval="3500">
       <%= image_tag("Banner-2.jpg", class: "d-block w-100", alt: "...") %>
     </div>
-    <div class="carousel-item" data-bs-interval="3000">
+    <div class="carousel-item" data-bs-interval="3500">
       <%= image_tag("Banner-3.jpg", class: "d-block w-100", alt: "...") %>
     </div>
   </div>
   <div class="carousel-caption d-none d-md-block">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <h1 class="text-center">Catch your next card!</h1>
+        <h1 class="text-center">Rare Finds, Top Trades</h1>
+        <p class="text-center">The world's highest-rated card trading platform</p>
         <%= form_tag(cards_path, method: "get") do %>
           <div class="form-group">
             <%= text_field_tag :search, params[:search], class: "form-control search-input", placeholder: "" %>

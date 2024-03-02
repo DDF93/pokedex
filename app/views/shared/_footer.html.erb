@@ -9,15 +9,15 @@
     <section class="mt-5">
       <div class="row text-center d-flex justify-content-center pt-5">
         <% footer_links = [
+          { name: 'Home', href: 'http://localhost:3000/' },
           { name: 'Browse Cards', href: 'http://localhost:3000/cards' },
-          { name: 'My Trades', href: 'http://localhost:3000/items_for_sale' },
-          { name: 'Help & Support', href: 'http://localhost:3000/contact' }
+          { name: 'Help', href: 'http://localhost:3000/contact' }
         ] %>
         <% footer_links.each do |link| %>
           <div class="col-md-2">
-            <h6 class="text-uppercase font-weight-bold">
+            <p class="text-uppercase font-weight-bold">
               <a href="<%= link[:href] %>" class="text-white"><%= link[:name] %></a>
-            </h6>
+            </p>
           </div>
         <% end %>
       </div>
@@ -28,13 +28,10 @@
     <section class="mb-5">
       <div class="row d-flex justify-content-center">
         <div class="col-lg-8">
-          <p>
-            Welcome to our Pokémon Trading Card Marketplace! Explore a vibrant
-            hub where enthusiasts buy and sell Pokémon TCG cards to expand their
-            collections, complete decks, and connect with fellow trainers. Join
-            our community-driven platform to discover rare finds, engage in
-            trades, and experience the thrill of becoming the ultimate Pokémon
-            Master
+          <p style="color: #A3A3A3; font-size: 13px;">
+            Pokédex is the world's highest-rated Pokémon Trading Card Marketplace where enthusiasts buy and sell Pokémon TCG cards to expand their
+            collections, complete decks, and connect with fellow trainers. Join our community-driven platform to discover rare finds, engage in
+            trades, and experience the thrill of becoming the ultimate Pokémon Master.
           </p>
         </div>
       </div>
@@ -42,10 +39,10 @@
 
     <section class="text-center mb-5">
       <% social_links = [
-        { icon: 'fab fa-x-twitter', href: '' },
-        { icon: 'fab fa-google', href: '' },
-        { icon: 'fab fa-instagram', href: '' },
-        { icon: 'fab fa-github', href: '' }
+        { icon: 'fab fa-x-twitter', href: 'https://github.com/DDF93/pokedex' },
+        { icon: 'fab fa-google', href: 'https://github.com/DDF93/pokedex' },
+        { icon: 'fab fa-instagram', href: 'https://github.com/DDF93/pokedex' },
+        { icon: 'fab fa-github', href: 'https://github.com/DDF93/pokedex' }
       ] %>
       <% social_links.each do |link| %>
         <a href="<%= link[:href] %>" class="text-white me-4">
